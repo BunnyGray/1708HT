@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tarena.ht.mapper.LoginServiceMapper">
+    <select id="adminLogin" resultType="AdminUser">
+        SELECT * FROM user_admin WHERE username = #{username} AND passwd = #{password}
+    </select>
+    <select id="studentLogin" resultType="Student">
+        SELECT * FROM student WHERE stu_no = #{username} AND passwd=#{password}
+    </select>
+    <select id="teacherLogin" resultType="Teacher">
+        SELECT * FROM teacher WHERE job_no = #{username} AND passwd = #{password}
+    </select>
+</mapper>

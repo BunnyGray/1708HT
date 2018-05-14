@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tarena.ht.mapper.ReplyMapper">
+
+    <resultMap id="replyRM" type="Reply" autoMapping="true">
+        <id column="stu_no" property="stuNo"></id>
+    </resultMap>
+    <sql id="all">
+        SELECT * FROM reply_statistics
+    </sql>
+    <select id="findAll" resultMap="replyRM">
+        <include refid="all"/>
+        ORDER BY is_finished ASC
+    </select>
+    <select id="findAllUnfinished" resultMap="replyRM">
+        <include refid="all"/>
+        WHERE is_finished = '0';
+    </select>
+    <update id="updateResult">
+        UPDATE reply_statistics SET query_result=#{queryResult} WHERE stu_no=#{stuNo}
+    </update>
+    <update id="updateGrade">
+        UPDATE reply_statistics SET grade_1=#{grade1},grade_2=#{grade2} WHERE stu_no=#{stuNo}
+    </update>
+    <update id="updateGradeAndResult">
+        UPDATE reply_statistics SET reply_grade=#{replyGrade},reply_result=#{replyResult} WHERE stu_no=#{stuNo}
+    </update>
+    <select id="getGrades" resultType="integer">
+        SELECT * FROM reply_statistics r WHERE stu_no=#{stuNo} AND grade_1 IS NOT NULL AND  grade_2 IS NOT  NULL ;
+    </select>
+    <select id="getResult" resultType="integer">
+        SELECT * FROM reply_statistics WHERE  stu_no=#{stuNo} AND reply_result IS NOT NULL AND reply_grade IS NOT NULL
+    </select>
+    <select id="getQuery" resultType="integer">
+        select * FROM reply_statistics WHERE stu_no=#{stuNo} AND query_result IS NOT NULL
+    </select>
+    <update id="updateStatus">
+        UPDATE reply_statistics SET is_finished = '1' WHERE stu_no=#{stuNo}
+    </update>
+    <update id="updateStatusToFalse">
+        UPDATE reply_statistics SET is_finished='0' WHERE stu_no=#{stuNo}
+    </update>
+    <select id="pageTitleSum" resultType="int">
+        SELECT count(DISTINCT r.page_topic) FROM reply_statistics r
+    </select>
+    <select id="pass" resultType="int">
+        SELECT COUNT(r.stu_no) FROM  reply_statistics r WHERE r.reply_result = '通过'
+    </select>
+    <select id="teaProfessor" resultType="int">
+    SELECT count(t.job_no) FROM teacher t WHERE  t.job_title = '教授';
+    </select>
+    <select id="teaAssociateProfessor" resultType="int">
+    SELECT count(t.job_no) FROM teacher t WHERE  t.job_title = '副教授';
+    </select>
+    <select id="teaTeacher" resultType="int">
+    SELECT count(t.job_no) FROM teacher t WHERE  t.job_title = '讲师';
+
+    </select>
+    <select id="teaSeniorProgrammer" resultType="int">
+    SELECT count(t.job_no) FROM teacher t WHERE  t.job_title = '高级工程师';
+    </select>
+    <select id="teaPositiveSeniorProgrammer" resultType="int">
+    SELECT count(t.job_no) FROM teacher t WHERE  t.job_title = '正高级高级工程师';
+    </select>
+    <select id="infoFinished" resultType="int">
+    SELECT COUNT(r.stu_no) FROM  reply_statistics r WHERE r.is_finished = '1';
+    </select>
+    <select id="majorCUS" resultType="int">
+    SELECT count(s.stu_no) FROM student s WHERE s.major = '计算机应用技术';
+    </select>
+    <select id="majorCT" resultType="int">
+    SELECT count(s.stu_no) FROM student s WHERE s.major = '计算机技术';
+    </select>
+    <select id="majorSE" resultType="int">
+    SELECT count(s.stu_no) FROM student s WHERE s.major = '软件工程';
+    </select>
+    <select id="time6" resultType="int">
+    SELECT count(s.stu_no) FROM student s WHERE substr(s.graduate_date,7,1) = '6';
+    </select>
+    <select id="time12" resultType="int">
+    SELECT count(s.stu_no) FROM student s WHERE substr(s.graduate_date,6,2) = '12';
+    </select>
+    <select id="typeApplyStudy" resultType="int">
+    SELECT count(r.stu_no) FROM reply_statistics r WHERE r.page_type = '1';
+    </select>
+    <select id="typeEngineDesign" resultType="int">
+    SELECT count(r.stu_no) FROM reply_statistics r WHERE r.page_type = '2';
+    </select>
+    <select id="typeProductStudy" resultType="int">
+    SELECT count(r.stu_no) FROM reply_statistics r WHERE r.page_type = '3';
+    </select>
+    <select id="queryTime" resultType="string">
+        SELECT date_format(now(),"%Y-%m-%d %H:%m");
+    </select>
+</mapper>

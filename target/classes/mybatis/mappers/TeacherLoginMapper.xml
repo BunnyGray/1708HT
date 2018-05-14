@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tarena.ht.mapper.TeacherLoginMapper">
+    <select id="findResult" resultType="map">
+    SELECT r.stu_no,r.name,r.query_result,r.reply_grade,r.reply_result FROM reply_statistics r WHERE r.teacher_in=#{a} OR  r.teacher_out=#{a};
+    </select>
+    <select id="findMyStuInfo" resultType="map">
+        SELECT s.stu_no,s.name,s.gender,s.page_topic,s.page_type FROM student s WHERE s.teacher_no_in=#{a} OR s.teacher_no_out=#{a}
+    </select>
+    <select id="findTeacherList" resultMap="teacherRM">
+    SELECT * FROM teacher
+    WHERE job_no = (
+        SELECT r.teacher1 FROM stu_tea_real r WHERE stu_no IN (
+            SELECT stu_no FROM reply_statistics rs WHERE rs.teacher_in=#{a} OR rs.teacher_out=#{a}
+        )
+    )
+          OR job_no=(SELECT r.teacher2 FROM stu_tea_real r WHERE stu_no IN (
+        SELECT stu_no FROM reply_statistics rs WHERE rs.teacher_in=#{a} OR rs.teacher_out=#{a}
+    ))OR job_no = (SELECT r.teacher3 FROM stu_tea_real r WHERE stu_no IN (
+        SELECT stu_no FROM reply_statistics rs WHERE rs.teacher_in=#{a} OR rs.teacher_out=#{a}
+    )) OR job_no=(SELECT r.teacher4 FROM stu_tea_real r WHERE stu_no IN (
+        SELECT stu_no FROM reply_statistics rs WHERE rs.teacher_in=#{a} OR rs.teacher_out=#{a}
+    ))
+    </select>
+    <resultMap id="teacherRM" type="teacher" autoMapping="true">
+        <id column="job_no" property="jobNo"></id>
+    </resultMap>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tarena.ht.mapper.StudentMapper">
+    <sql id="selectAll">
+    SELECT
+  SS.*,q2.`NAME` name_in,q1.`name` name_out
+FROM
+  student ss
+  INNER JOIN (
+               SELECT
+                 s1.stu_no,
+                 t1. NAME
+               FROM
+                 student s1
+                 LEFT JOIN teacher t1 ON s1.teacher_no_out = t1.job_no
+             ) q1 ON ss.stu_no=q1.stu_no
+  INNER JOIN (
+               SELECT
+                 s2.stu_no,
+                 t2.`name`
+               FROM
+                 student s2
+                 LEFT JOIN teacher t2 ON s2.teacher_no_in = t2.job_no
+             ) q2 ON ss.stu_no=q2.stu_no
+</sql>
+    <resultMap id="studentRM" type="Student" autoMapping="true">
+        <id column="stu_no" property="stuNo"/>
+        <result column="name_in" property="teacherNoIn"/>
+        <result column="name_out" property="teacherNoOut"/>
+        <!--<association property="teacherNo" javaType="Teacher">
+            <id column="t_jobNo" property="jobNo"/>
+            <result column="t_name" property="name"/>
+            <result column="t_gender" property="gender"/>
+            <result column="t_jobTitle" property="jobTitle"/>
+            <result column="t_cardNo" property="cardNo"/>
+            <result column="t_phoneNo" property="phoneNo"/>
+            <result column="t_qqNo" property="qqNo"/>
+            <result column="t_wechatNo" property="wechatNo"/>
+            <result column="t_email" property="email"/>
+            <result column="t_passwd" property="passwd"/>
+            <result column="t_teacherType" property="teacherType"/>
+        </association>-->
+    </resultMap>
+    <select id="findAll" resultMap="studentRM">
+        <include refid="selectAll"/>
+    </select>
+    <select id="findOne" resultMap="studentRM">
+
+        <include refid="selectAll"/>WHERE ss.stu_no = #{userId}
+
+    </select>
+    <update id="updateOne">
+
+UPDATE student SET name = #{name},gender=#{gender},age=#{age},nation=#{nation},card_no=#{cardNo},graduate_date=#{graduateDate},
+teacher_no_in=#{teacherNoIn},teacher_no_out=#{teacherNoOut},class_no=#{classNo},major=#{major},
+is_full_time=#{isFullTime},phone_no=#{phoneNo},qq_no=#{qqNo},email=#{email},passwd=#{passwd},
+page_topic=#{pageTopic},page_type=#{pageType} WHERE stu_no = #{stuNo}
+
+    </update>
+    <delete id="deleteByIds">
+        DELETE FROM student WHERE stu_no IN
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    <insert id="save">
+    INSERT INTO student VALUES (#{stuNo},#{name},#{gender},#{age},#{nation},#{cardNo},#{graduateDate},#{teacherNoIn},#{teacherNoOut},#{classNo},#{major},#{isFullTime},#{phoneNo},#{qqNo},#{email},#{passwd},#{pageTopic},#{pageType});
+    </insert>
+</mapper>
