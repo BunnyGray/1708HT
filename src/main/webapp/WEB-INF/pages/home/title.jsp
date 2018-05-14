@@ -230,14 +230,14 @@
           <div id="menuContent">
             <span id="topmenu" onclick="toModule('home');">系统首页</span><span id="tm_separator"></span>
             <c:if test='${sessionScope.get("_CURRENT_USER").getType()=="3"}'>
-              <span id="topmenu" onclick="toModule('student');">学生登录:点击操作类型</span><span id="tm_separator"></span>
+              <span id="topmenu" onclick="toModule('student');">学生登录:点击选择操作类型</span><span id="tm_separator"></span>
             </c:if>
             <%--<span id="topmenu" onclick="toModule('baseinfo');">学生登录.eg</span><span id="tm_separator"></span>--%>
             <c:if test='${sessionScope.get("_CURRENT_USER").getType()=="2"}'>
-              <span id="topmenu" onclick="toModule('teacher');">教师登录:点击操作类型</span><span id="tm_separator"></span>
+              <span id="topmenu" onclick="toModule('teacher');">教师登录:点击选择操作类型</span><span id="tm_separator"></span>
             </c:if>
             <c:if test='${sessionScope.get("_CURRENT_USER").getType()=="1"}'>
-              <span id="topmenu" onclick="toModule('sysadmin');">学位点负责人登录:点击操作类型</span>
+              <span id="topmenu" onclick="toModule('sysadmin');">学位点负责人登录:点击选择操作类型</span>
             </c:if>
           </div>
           <span id="rightKey" onmouseover="periodOffset(this, 'right')"><img
