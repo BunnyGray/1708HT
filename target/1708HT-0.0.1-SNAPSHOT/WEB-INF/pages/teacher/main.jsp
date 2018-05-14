@@ -26,7 +26,7 @@
       <tr>
         <td class="model_intro_left">上传文档到服务器：</td>
         <td class="model_intro_right"><font style="font-size: 15px;color: blue;font-weight: bold">※</font> 答辩学生导师：上传“硕士研究生答辩申请表”、“学生成绩单”，如果是工程硕士，还需上传“企业导师登记表”。
-          <font style="font-size: 15px;color: blue;font-weight: bold">※</font> 被评阅学生导师：上传论文、评阅书。
+          <p><font style="font-size: 15px;color: blue;font-weight: bold">※</font> 被评阅学生导师：上传论文、评阅书。</p>
         </td>
       </tr>
       <tr>

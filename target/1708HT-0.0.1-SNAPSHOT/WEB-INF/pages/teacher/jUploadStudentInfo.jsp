@@ -58,13 +58,13 @@
         <tr>
           <td>校内导师：</td>
           <td>
-            <c:if test='${type=="校内导师"}'><input type="text" name="teacherNoIn" readonly value="${name }"/></c:if>
-            <c:if test='${type!="校内导师"}'><input type="text" name="teacherNoIn" value="${student.teacherNoIn }"/></c:if>
+            <c:if test='${sessionScope.get("_CURRENT_USER").teacherType=="校内导师"}'><input type="text" name="teacherNoIn" readonly value="${sessionScope.get("_CURRENT_USER").name}"/></c:if>
+            <c:if test='${sessionScope.get("_CURRENT_USER").teacherType!="校内导师"}'><input type="text" name="teacherNoIn" value="${student.teacherNoIn }"/></c:if>
           </td>
           <td>企业导师：</td>
           <td>
-            <c:if test='${type=="企业导师"}'><input type="text" name="teacherNoOut" readonly value="${name }" /></c:if>
-            <c:if test='${type!="企业导师"}'><input type="text" name="teacherNoOut" value="${student.teacherNoOut}"/></c:if>
+            <c:if test='${sessionScope.get("_CURRENT_USER").teacherType=="企业导师"}'><input type="text" name="teacherNoOut" readonly value="${sessionScope.get("_CURRENT_USER").name}"/></c:if>
+            <c:if test='${sessionScope.get("_CURRENT_USER").teacherType!="企业导师"}'><input type="text" name="teacherNoOut" value="${student.teacherNoOut}"/></c:if>
           </td>
           <%--<td><fmt:formatDate value="${student.studentInfo.birthday }" pattern="yyyy-MM-dd"/></td>--%>
         </tr>

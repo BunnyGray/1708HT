@@ -10,4 +10,7 @@ public interface LoginServiceMapper {
     AdminUser adminLogin(Map map);
     Student studentLogin(Map map);
     Teacher teacherLogin(Map map);
+    Teacher getUserByTeacherName(String username);
+    Student getUserByStudentName(String username);
+    AdminUser getUserByAdminName(String username);
 }

@@ -12,4 +12,13 @@
     <select id="teacherLogin" resultType="Teacher">
         SELECT * FROM teacher WHERE job_no = #{username} AND passwd = #{password}
     </select>
+    <select id="getUserByTeacherName" resultType="Teacher">
+        SELECT * FROM teacher WHERE job_no = #{username} AND passwd = #{password}
+    </select>
+    <select id="getUserByStudentName" resultType="Student">
+        SELECT * FROM student WHERE stu_no = #{username}
+    </select>
+    <select id="getUserByAdminName" resultType="AdminUser">
+                 SELECT * FROM user_admin WHERE username = #{username}
+    </select>
 </mapper>

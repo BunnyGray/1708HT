@@ -4,6 +4,12 @@ public class AdminUser extends BaseEntity {
     private String username;
     private String name;
     private String passwd;
+    private String type = "1";
+
+    @Override
+    public String getType() {
+        return type;
+    }
 
     public String getUsername() {
         return username;

@@ -232,13 +232,11 @@
 <div class="PositionFrame_black" id="PositionFrame"></div>
 <div id="userInfo" style="z-index:999;" onclick="HideLoginDiv()" title="点击关闭">
     <img src="${ctx}/staticfile/skin/default/images/title/avataronline.gif" border="0" style="margin-top:-1px;"/>
-    您好：<strong>${_CURRENT_USER.userInfo.name}</strong>&nbsp;&nbsp;|
-    您所属单位：<strong>
-    <c:if test="${!empty _CURRENT_USER.dept}">
-        ${_CURRENT_USER.dept.deptName}
-    </c:if>
-</strong>&nbsp;&nbsp;
+    您好：<strong>${_CURRENT_USER.name}</strong>&nbsp;&nbsp;|
+    &nbsp;&nbsp;
+
     <img src="${ctx}/staticfile/skin/default/images/title/close.gif" border="0"/>
+    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
 </div>
 
 <a id="memos" style="cursor:pointer;" onclick="toModule('home');" target="_top" title="点击切换到系统首页">

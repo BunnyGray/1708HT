@@ -25,9 +25,9 @@
             <div class="panel-content">
                 <ul>
                     <li>
-                        <a href="${ctx}/student/showPageResult?stuNo=${student.stuNo}" id="aa_1" onclick="linkHighlighted(this)"  target="main">查看论文结果</a>
+                        <a href="${ctx}/student/showPageResult?stuNo=${sessionScope.get("_CURRENT_USER").stuNo}" id="aa_1" onclick="linkHighlighted(this)"  target="main">查看论文结果</a>
                     </li>
-                    <li><a href="${ctx}/student/showPageSuggest?stuNo=${student.stuNo}" onclick="linkHighlighted(this)" target="main"
+                    <li><a href="${ctx}/student/showPageSuggest?stuNo=${sessionScope.get("_CURRENT_USER").stuNo}" onclick="linkHighlighted(this)" target="main"
                            id="aa_1">查看评阅意见</a></li>
                 </ul>
             </div>

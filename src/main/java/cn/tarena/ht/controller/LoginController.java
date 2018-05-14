@@ -1,18 +1,25 @@
 package cn.tarena.ht.controller;
 
+import cn.tarena.ht.pojo.BaseEntity;
 import cn.tarena.ht.service.LoginService;
+import cn.tarena.ht.shiro.ExternUsernamePasswordToken;
+import cn.tarena.ht.shiro.IncorrectCaptchaException;
 import cn.tarena.ht.tool.VerifyCode;
+import org.apache.ibatis.jdbc.Null;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 public class LoginController extends BaseController {
@@ -31,41 +38,41 @@ public class LoginController extends BaseController {
     }
 
     @RequestMapping("login")
-    public String login(String username, String password, String usertype, String valicode, Model model, HttpSession session) {
-        if (valicode == null) {
-            model.addAttribute("errorInfo", "请输入验证码！");
+    public String login(String username, String password, String usertype, String valicode, Model model, HttpSession session, ServletRequest request) {
+        //获取subject对象
+        Subject subject = SecurityUtils.getSubject();
+        //创建一个用户名和密码的令牌
+        ExternUsernamePasswordToken token = null;
+        try {
+            token = new ExternUsernamePasswordToken(username, password.toCharArray(), false, null, valicode);
+        } catch (NullPointerException e) {
             return "/sysadmin/login/login";
         }
-        String code = session.getAttribute("valicode") == null ? "" : (String) session.getAttribute("valicode");
-        if (!code.equalsIgnoreCase(valicode)) {
-            //            model.addAttribute("errorInfo", "验证码错误！");
-            //            return "/sysadmin/login/login";
-        }
-        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
-            model.addAttribute("errorInfo", "用户名或密码不能为空！");
+        try {
+            doExternValidate((HttpServletRequest) request, token);
+            subject.login(token);
+            //从subject中得到正确的用户对象 放到session
+            BaseEntity user = (BaseEntity) subject.getPrincipal();
+            session.setAttribute("_CURRENT_USER", user);
+            //登录成功跳转到首页
+            return "redirect:/home";
+        } catch (AuthenticationException e) {
+            e.printStackTrace();
+            if (e.getMessage() == "验证码错误！") {
+                model.addAttribute("errorInfo", e.getMessage());
+            } else {
+                model.addAttribute("errorInfo", "用户名或密码不正确！");
+            }
             return "/sysadmin/login/login";
         }
-        //        password = Md5Utils.getMd5(password, username);
-        Object user;
-        Map<String, String> map = new HashMap<String, String>();
-        map.put("username", username);
-        map.put("password", password);
-        if (usertype.equals("1")) {
-            user = loginService.adminLogin(map);
-        } else if (usertype.equals("2")) {
-            user = loginService.studentLogin(map);
-        } else {
-            user = loginService.teacherLogin(map);
+    }
+
+    protected void doExternValidate(HttpServletRequest request, ExternUsernamePasswordToken token) {
+        String captcha = request.getParameter("valicode");
+        String code = request.getSession().getAttribute("valicode") == null ? "" : (String) request.getSession().getAttribute("valicode");
+        if (!code.equalsIgnoreCase(captcha)) {
+            throw new IncorrectCaptchaException("验证码错误！");
         }
-        if (user == null) {
-            model.addAttribute("errorInfo", "用户名或密码不正确！");
-            return "/sysadmin/login/login";
-        }
-        //把登录成功的用户信息 保存到session域中
-        session.setAttribute("_CURRENT_USER", user);
-        //登录成功跳转到首页
-        return "redirect:/home";
-        //        return "/sysadmin/login/login";
     }
 
     @RequestMapping("/servlet/ValiImageServlet")

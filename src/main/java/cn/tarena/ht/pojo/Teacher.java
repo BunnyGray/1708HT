@@ -1,7 +1,6 @@
 package cn.tarena.ht.pojo;
 
 public class Teacher extends BaseEntity {
-
     private String jobNo;
     private String name;
     private String gender;
@@ -13,6 +12,12 @@ public class Teacher extends BaseEntity {
     private String email;
     private String passwd;
     private String teacherType;
+    private String type = "2";
+
+    @Override
+    public String getType() {
+        return type;
+    }
 
     @Override
     public String toString() {

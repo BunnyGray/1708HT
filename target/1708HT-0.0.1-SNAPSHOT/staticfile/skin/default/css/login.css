@@ -11,8 +11,8 @@ body{ background:#00716B; margin:0px; padding:0px;font-size:14px; color:#FFFFFF;
 .inputlable{height:30px; margin-top:22px;}
 
 
-.btnstyle{width:210px; float:right; padding-top:18px;}
-.btnstyle input{ width:width:96px; height:45px;}
+.btnstyle{width:210px; float:right; padding-top:50px;}
+.btnstyle input{ width:96px; height:45px;}
 
 
 .loginImgOut {width:96px; height:45px; padding-top:18px; background:url(../images/login/loginImgOut.jpg) no-repeat; border:0px; cursor:pointer;}

@@ -21,6 +21,12 @@ public class Student extends BaseEntity {
     private String passwd;
     private String pageTopic;
     private Integer pageType;
+    private String type="3";
+
+    @Override
+    public String getType() {
+        return type;
+    }
 
     @Override
     public String toString() {
