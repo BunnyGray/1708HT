@@ -28,13 +28,13 @@
           管理和查看研究生导师信息，包括研究生导师基本信息的导入、添加、删除、修改，查询，显示。
         </td>
       </tr>
-      <tr>
+     <%-- <tr>
         <td class="model_intro_left" width="169">学位点负责人信息管理：</td>
         <td class="model_intro_right" width="81%">
           <font style="font-size: 15px;color: blue;font-weight: bold">※ </font>
           修改本人信息.
         </td>
-      </tr>
+      </tr>--%>
       <tr>
         <td class="model_intro_left" width="169">录入答辩信息：</td>
         <td class="model_intro_right" width="81%"><font style="font-size: 15px;color: blue;font-weight: bold">※ </font>
