@@ -28,7 +28,7 @@ public class AuthRealm extends SimpleAccountRealm {
         //给Info准备数据
         //得到正确的用户信息
         BaseEntity user = loginService.getUserByUsername(loginToken.getUsername());
-        System.err.println(user);
+//        System.err.println(user);
         /**
          * principal:代表正确的对象
          * credentials：代表正确的密码
