@@ -21,16 +21,8 @@
                  onfocus="$('#ts').css('display','none');this.select();"
                  onKeyDown="javascript:if(event.keyCode==13){ submitFind(); }" title="请您输入密码"/>
         </div>
-        <div class="inputlable">登录角色：
-          <select name="usertype" style="width: 160px;height: 26px">
-            <option value="2">研究生</option>
-            <option value="3">研究生导师</option>
-            <option value="1">学位点负责人</option>
-          </select>
-          <%--<input type="text" value="123456" name="valicode" id="valicode"/>--%>
-        </div>
         <div class="inputlable">&nbsp;&nbsp;验证码：
-          <input type="text" value="123456" name="valicode" id="valicode" style="width: 150px"/>
+          <input type="text" value="" placeholder="请输入验证码" required name="valicode" id="valicode" style="width: 150px"/>
         </div> &nbsp;&nbsp;&nbsp;<img style="padding-left:inherit" onclick="changeImage(this)"
                                       src="<%= request.getContextPath() %>/servlet/ValiImageServlet" width="" height="" alt=""/>
         <script>
@@ -39,6 +31,14 @@
                 thisobj.src = "<%= request.getContextPath() %>/servlet/ValiImageServlet?a=" + new Date().getTime();
             }
         </script>
+        <div class="inputlable">
+          <%--<select name="usertype" style="width: 160px;height: 26px">--%>
+          <%--<option value="2">研究生</option>--%>
+          <%--<option value="3">研究生导师</option>--%>
+          <%--<option value="1">学位点负责人</option>--%>
+          <%--</select>--%>
+          <input type="button" style="width: 380px;background: none;color: whitesmoke;border: none" value="Tip: 输入用户名密码之后自动进入对应角色的功能页" readonly/>
+        </div>
       </div>
       <div class="btnstyle">
         <input class="loginImgOut" value="" type="button" onclick="submition()" onmouseover="this.className='loginImgOver'"

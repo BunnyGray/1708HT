@@ -23,7 +23,9 @@ cn\tarena\ht\mapper\TeacherLoginMapper.class
 cn\tarena\ht\pojo\BaseEntity.class
 cn\tarena\ht\shiro\ExternFormAuthenticationFilter.class
 cn\tarena\ht\mapper\StudentMapper.class
+cn\tarena\ht\shiro\AuthCredentialMatcher.class
 cn\tarena\ht\pojo\Student.class
+cn\tarena\ht\shiro\AuthRealm.class
 cn\tarena\ht\mapper\ReplyMapper.class
 cn\tarena\ht\pojo\Role.class
 cn\tarena\ht\controller\HomeController.class
@@ -46,6 +48,7 @@ cn\tarena\ht\controller\AdmController.class
 cn\tarena\ht\tool\TimeTool.class
 cn\tarena\ht\service\AdmService.class
 cn\tarena\ht\controller\LoginController.class
+cn\tarena\ht\tool\MD5Utils.class
 cn\tarena\ht\mapper\DeptMapper.class
 cn\tarena\ht\service\ModuleService.class
 cn\tarena\ht\mapper\RoleMapper.class

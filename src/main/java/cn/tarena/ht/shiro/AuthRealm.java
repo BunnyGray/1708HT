@@ -4,6 +4,7 @@ import cn.tarena.ht.pojo.AdminUser;
 import cn.tarena.ht.pojo.BaseEntity;
 import cn.tarena.ht.pojo.Teacher;
 import cn.tarena.ht.service.LoginService;
+import cn.tarena.ht.tool.MD5Utils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

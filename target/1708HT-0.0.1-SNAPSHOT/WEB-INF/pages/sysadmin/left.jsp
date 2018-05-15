@@ -24,7 +24,7 @@
           <%--<li><a href="${ctx}/sysadmin/user/list" onclick="linkHighlighted(this)" target="main" id="aa_1">教师信息管理111</a></li>--%>
           <li><a href="${ctx}/sysadmin/student/list" onclick="linkHighlighted(this)" target="main" id="aa_1">学生信息管理</a></li>
           <li><a href="${ctx}/sysadmin/teacher/list" onclick="linkHighlighted(this)" target="main" id="aa_1">教师信息管理</a></li>
-          <li><a href="${ctx}/sysadmin/adm/list" onclick="linkHighlighted(this)" target="main" id="aa_1">学位点负责人信息管理</a></li>
+          <%--<li><a href="${ctx}/sysadmin/adm/list" onclick="linkHighlighted(this)" target="main" id="aa_1">学位点负责人信息管理</a></li>--%>
           <%--<li><a href="${ctx}/sysadmin/dept/list" onclick="linkHighlighted(this)" target="main" id="aa_1">录入答辩信息</a></li>--%>
           <li><a href="${ctx}/sysadmin/reply/list" onclick="linkHighlighted(this)" target="main" id="aa_1">录入答辩信息</a></li>
           <li><a href="${ctx}/sysadmin/publish/list" onclick="linkHighlighted(this)" target="main" id="aa_1">发布系统通知</a></li>

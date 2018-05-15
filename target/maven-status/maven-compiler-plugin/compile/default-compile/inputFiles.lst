@@ -25,6 +25,7 @@ D:\workspace_idea\1708HT\src\main\java\cn\tarena\ht\controller\ReplyController.j
 D:\workspace_idea\1708HT\src\main\java\cn\tarena\ht\shiro\IncorrectCaptchaException.java
 D:\workspace_idea\1708HT\src\main\java\cn\tarena\ht\service\LoginServiceImpl.java
 D:\workspace_idea\1708HT\src\main\java\cn\tarena\ht\mapper\RoleMapper.java
+D:\workspace_idea\1708HT\src\main\java\cn\tarena\ht\tool\MD5Utils.java
 D:\workspace_idea\1708HT\src\main\java\cn\tarena\ht\mapper\PublishMapper.java
 D:\workspace_idea\1708HT\src\main\java\cn\tarena\ht\service\UserServiceImpl.java
 D:\workspace_idea\1708HT\src\main\java\cn\tarena\ht\service\TeacherServiceImpl.java

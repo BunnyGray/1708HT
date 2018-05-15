@@ -2,6 +2,7 @@ package cn.tarena.ht.controller;
 
 import cn.tarena.ht.pojo.Teacher;
 import cn.tarena.ht.service.TeacherService;
+import cn.tarena.ht.tool.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,6 +36,7 @@ public class TeacherController extends BaseController {
     }
     @RequestMapping("update")
     public String update(Teacher teacher) {
+        teacher.setPasswd(MD5Utils.md5(teacher.getPasswd()));
         teacherServie.updateOne(teacher);
         return "redirect:/sysadmin/teacher/list";
     }

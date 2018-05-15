@@ -4,6 +4,7 @@ import cn.tarena.ht.pojo.BaseEntity;
 import cn.tarena.ht.service.LoginService;
 import cn.tarena.ht.shiro.ExternUsernamePasswordToken;
 import cn.tarena.ht.shiro.IncorrectCaptchaException;
+import cn.tarena.ht.tool.MD5Utils;
 import cn.tarena.ht.tool.VerifyCode;
 import org.apache.ibatis.jdbc.Null;
 import org.apache.shiro.SecurityUtils;
@@ -44,7 +45,7 @@ public class LoginController extends BaseController {
         //创建一个用户名和密码的令牌
         ExternUsernamePasswordToken token = null;
         try {
-            token = new ExternUsernamePasswordToken(username, password.toCharArray(), false, null, valicode);
+            token = new ExternUsernamePasswordToken(username, MD5Utils.md5(password).toCharArray(), false, null, valicode);
         } catch (NullPointerException e) {
             return "/sysadmin/login/login";
         }

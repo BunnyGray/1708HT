@@ -13,7 +13,7 @@
         SELECT * FROM teacher WHERE job_no = #{username} AND passwd = #{password}
     </select>
     <select id="getUserByTeacherName" resultType="Teacher">
-        SELECT * FROM teacher WHERE job_no = #{username} AND passwd = #{password}
+        SELECT * FROM teacher WHERE job_no = #{username}
     </select>
     <select id="getUserByStudentName" resultType="Student">
         SELECT * FROM student WHERE stu_no = #{username}
