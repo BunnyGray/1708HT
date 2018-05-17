@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>cn.tedu</groupId>
-    <artifactId>1708HT</artifactId>
+    <groupId>edu.IMUT.ies</groupId>
+    <artifactId>adm</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>1708HT Maven Webapp</name>
+    <name>adm_imut Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <!-- 集中定义依赖版本号 -->
     <properties>

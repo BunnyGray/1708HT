@@ -8,10 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="1708HT" />
+        <module name="adm_imut" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
       <module name="1708HT" target="1.5" />
+      <module name="adm_imut" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
