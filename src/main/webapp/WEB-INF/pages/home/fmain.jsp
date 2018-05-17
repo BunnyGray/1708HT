@@ -2,6 +2,10 @@
 <html>
 <head>
 <title>研究生答辩管理系统</title>
+	<link rel="icon" href="${ctx}/staticfile/skin/default/images/icon/my.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="${ctx}/staticfile/skin/default/images/icon/my.ico" type="image/x-icon" />
+	<link rel="bookmark" href="${ctx}/staticfile/skin/default/images/icon/my.ico" type="image/x-icon" />
+
 </head>
 <frameset rows="125,*" name="topFrameset" border="0">
 	<frame name="top_frame" scrolling="no"  target="middleFrameSet" src="title.action">	
