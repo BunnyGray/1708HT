@@ -27,6 +27,7 @@ D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\pojo\AdminUser.java
 D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\controller\UserController.java
 D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\pojo\Role.java
 D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\controller\PublishController.java
+D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\auto\GenerateReplyStaticsForm.java
 D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\pojo\BaseEntity.java
 D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\service\StudentService.java
 D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\pojo\Hero.java
@@ -52,6 +53,7 @@ D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\mapper\RoleMapper.java
 D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\controller\HeroController.java
 D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\controller\HomeController.java
 D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\mapper\ReplyMapper.java
+D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\auto\AbstractAutoJob.java
 D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\controller\BaseController.java
 D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\controller\StudentController.java
 D:\workspace_idea\adm_imut\src\main\java\cn\tarena\ht\service\ReplyServiceImpl.java

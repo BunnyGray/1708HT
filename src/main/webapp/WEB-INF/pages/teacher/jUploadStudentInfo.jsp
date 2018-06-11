@@ -75,7 +75,9 @@
           <td>专业：</td>
           <td>
             <select name="major" style="width: 150px">
-        <option value="应用研究" >应用研究</option>
+        <option value="计算机应用技术" >计算机应用技术</option>
+        <option value="计算机技术" >计算机技术</option>
+        <option value="软件工程" >软件工程</option>
 
             </select>
 

@@ -92,6 +92,6 @@
     SELECT count(r.stu_no) FROM reply_statistics r WHERE r.page_type = '3';
     </select>
     <select id="queryTime" resultType="string">
-        SELECT date_format(now(),"%Y-%m-%d %H:%m");
+        SELECT date_format(now(),"%Y-%m-%d %H:%i:%s");
     </select>
 </mapper>

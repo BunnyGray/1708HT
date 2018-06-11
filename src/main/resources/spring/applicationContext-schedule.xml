@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+  <bean id="SchedulerFactoryBean"
+        lazy-init="false"
+        autowire="no"
+        class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="triggers">
+      <list>
+        <ref bean="job_AutojobTest_haozg_Triger" />
+      </list>
+    </property>
+  </bean>
+  <bean id="job_AutojobTest_haozg_Triger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="job_AutojobTest_haozg" />
+    <property name="cronExpression">
+      <value>* * 0/3 * * ?</value>
+    </property>
+  </bean>
+  <bean id = "testJob" class="cn.tarena.ht.auto.GenerateReplyStaticsForm"/>
+  <bean id="job_AutojobTest_haozg" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="testJob" />
+    <property name="targetMethod" value="executeJob" />
+    <property name="concurrent" value="false" />
+  </bean>
+</beans>

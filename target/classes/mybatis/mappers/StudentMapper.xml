@@ -66,6 +66,6 @@ page_topic=#{pageTopic},page_type=#{pageType} WHERE stu_no = #{stuNo}
         </foreach>
     </delete>
     <insert id="save">
-    INSERT INTO student VALUES (#{stuNo},#{name},#{gender},#{age},#{nation},#{cardNo},#{graduateDate},#{teacherNoIn},#{teacherNoOut},#{classNo},#{major},#{isFullTime},#{phoneNo},#{qqNo},#{email},#{passwd},#{pageTopic},#{pageType});
+    INSERT INTO student VALUES (#{stuNo},#{name},#{gender},#{age},#{nation},#{cardNo},#{graduateDate},#{teacherNoIn},#{teacherNoOut},#{classNo},#{major},#{isFullTime},#{phoneNo},#{qqNo},#{email},#{passwd},#{pageTopic},#{pageType},3);
     </insert>
 </mapper>

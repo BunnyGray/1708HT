@@ -37,29 +37,29 @@ public class StudentController extends BaseController {
         return "/sysadmin/student/jStudentUpdate";
     }
 
-    @RequestMapping("/update")
-    public String update(Student student) {
-        student.setPasswd(MD5Utils.md5(student.getPasswd()));
-        studentService.updateOne(student);
-        return "redirect:/sysadmin/student/list";
-    }
+@RequestMapping("/update")
+public String update(Student student) {
+    student.setPasswd(MD5Utils.md5(student.getPasswd()));
+    studentService.updateOne(student);
+    return "redirect:/sysadmin/student/list";
+}
 
-    @RequestMapping("/delete")
-    public String update(@RequestParam(value = "userId", required = false) String[] ids) {
-        if (ids != null) {
-            studentService.deleteByIds(ids);
-        }
-        return "redirect:/sysadmin/student/list";
+@RequestMapping("/delete")
+public String update(@RequestParam(value = "userId", required = false) String[] ids) {
+    if (ids != null) {
+        studentService.deleteByIds(ids);
     }
+    return "redirect:/sysadmin/student/list";
+}
 
     @RequestMapping("/tocreate")
     public String toCreate() {
         return "/sysadmin/student/jStudentCreate";
     }
 
-    @RequestMapping("/tosave")
-    public String save(Student student) {
-        studentService.save(student);
-        return "redirect:/sysadmin/student/list";
-    }
+@RequestMapping("/tosave")
+public String save(Student student) {
+    studentService.save(student);
+    return "redirect:/sysadmin/student/list";
+}
 }

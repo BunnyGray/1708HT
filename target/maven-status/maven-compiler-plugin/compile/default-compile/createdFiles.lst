@@ -19,6 +19,7 @@ cn\tarena\ht\service\RoleService.class
 cn\tarena\ht\controller\StudentController.class
 cn\tarena\ht\shiro\IncorrectCaptchaException.class
 cn\tarena\ht\service\UserInfoServiceImpl.class
+cn\tarena\ht\auto\AbstractAutoJob.class
 cn\tarena\ht\mapper\TeacherLoginMapper.class
 cn\tarena\ht\pojo\BaseEntity.class
 cn\tarena\ht\shiro\ExternFormAuthenticationFilter.class
@@ -55,6 +56,7 @@ cn\tarena\ht\mapper\RoleMapper.class
 cn\tarena\ht\pojo\User.class
 cn\tarena\ht\service\DeptServiceImple.class
 cn\tarena\ht\service\ReplyService.class
+cn\tarena\ht\auto\GenerateReplyStaticsForm.class
 cn\tarena\ht\pojo\Teacher.class
 cn\tarena\ht\mapper\UserInfoMapper.class
 cn\tarena\ht\service\UserService.class
@@ -63,6 +65,7 @@ cn\tarena\ht\controller\ReplyController.class
 cn\tarena\ht\pojo\Reply.class
 cn\tarena\ht\service\TeacherService.class
 cn\tarena\ht\service\DeptService.class
+cn\tarena\ht\auto\AbstractAutoJob$JobInvokeResult.class
 cn\tarena\ht\controller\BaseController.class
 cn\tarena\ht\service\TeacherLoginService.class
 cn\tarena\ht\controller\StudentLoginController.class
